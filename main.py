@@ -24,14 +24,14 @@ myOptim = optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-5)
 scheduler = torch.optim.lr_scheduler.OneCycleLR(
     myOptim,
     max_lr=1e-3,
-    total_steps=25 * len(dataloader), # 總次數
+    total_steps=40 * len(dataloader), # 總次數
     pct_start=0.1,   # 前面 0.1 提升 lr
     anneal_strategy='cos',
     div_factor=10,  # 一開始加 10 倍，從 0.0001 到 0.001
     final_div_factor=100  # 決定週期結束時的最小 learning rate 0.0001 * 0.01
 )
 
-for epoch in range(30):
+for epoch in range(40):
     model.train()
     running_loss = 0
     for i,batch in enumerate(dataloader):
