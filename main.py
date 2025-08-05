@@ -31,7 +31,7 @@ scheduler = torch.optim.lr_scheduler.OneCycleLR(
     final_div_factor=100  # 決定週期結束時的最小 learning rate 0.0001 * 0.01
 )
 
-for epoch in range(25):
+for epoch in range(30):
     model.train()
     running_loss = 0
     for i,batch in enumerate(dataloader):
@@ -52,7 +52,9 @@ for epoch in range(25):
 
         if i % 100 == 0:
             print(f"Epoch [{epoch},{i}/1000] , Loss:{loss.item()}")
-
+    if epoch % 5 ==0 :
+        torch.save(model.state_dict(),f'{epoch}_auto_encoder.pt')
+        print(f'{epoch}_auto_encoder.pt is create')
     print("============================================================")
     print(f"Epoch [{epoch}], Loss: {running_loss / len(dataloader):.4f}")
     print("============================================================")
