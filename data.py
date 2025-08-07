@@ -5,36 +5,36 @@ import os
 import glob
 
 # 將 100000 筆 input data 合併
-# input_num = 100000
-# dataset = []
-#
-# for i in range(input_num):
-#     with open(f'Data/input{i}.txt','r',encoding='utf-8') as f:
-#         line = f.readlines()
-#         dataset.append(line)
-#
-#
-# with open('Data/dataset.txt','w',encoding='utf-8') as f:
-#     for line in dataset:
-#         merged = " ".join(line).strip()
-#         f.write(merged + "\n")
+#input_num = 300000
+#dataset = []
+
+#for i in range(input_num):
+#    with open(f'data/input{i}.txt','r',encoding='utf-8') as f:
+#        line = f.readlines()
+#        dataset.append(line)
+
+
+#with open('dataset.txt','w',encoding='utf-8') as f:
+#    for line in dataset:
+#        merged = " ".join(line).strip()
+#        f.write(merged + "\n")
 
 
 # 輸出成 2D tensor
 
-# with open('data/dataset.txt', 'r', encoding='utf-8') as f:
-#     lines = f.read().splitlines()
+#with open('dataset.txt', 'r', encoding='utf-8') as f:
+#    lines = f.read().splitlines()
 
-# for i,line in enumerate(lines):
-#    params_data = [float(data) for data in line.split()]
-#    params = params_data[:10]
+#for i,line in enumerate(lines):
+#   params_data = [float(data) for data in line.split()]
+#   params = params_data[:10]
 #
-#    H = mapping_height(params, resolution_x_mm=1.0, resolution_y_mm=1.0)
-#    padding_H = padding_height(H)  # shape: (401, 401)
+#   H = mapping_height(params, resolution_x_mm=1.0, resolution_y_mm=1.0)
+#   padding_H = padding_height(H)  # shape: (401, 401)
 #
-#    tensor_H = torch.tensor(padding_H, dtype=torch.float32)
+#   tensor_H = torch.tensor(padding_H, dtype=torch.float32)
 #
-#    torch.save(tensor_H, f'mapping_data/2D_{i}.pt')
+#   torch.save(tensor_H, f'mapping_data/2D_{i}.pt')
 
 
 

@@ -51,8 +51,8 @@ for epoch in range(40):
         running_loss += loss.item()
 
         if i % 100 == 0:
-            print(f"Epoch [{epoch},{i}/1000] , Loss:{loss.item()}")
-    if epoch % 5 ==0 :
+            print(f"Epoch [{epoch},{i}/3000] , Loss:{loss.item()}")
+    if epoch % 10 == 0 and epoch >= 30 :
         torch.save(model.state_dict(),f'{epoch}_auto_encoder.pt')
         print(f'{epoch}_auto_encoder.pt is create')
     print("============================================================")
