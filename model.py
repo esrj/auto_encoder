@@ -26,33 +26,33 @@ class Autoencoder(nn.Module):
             nn.BatchNorm2d(256),
             nn.ReLU(True),
 
-            nn.Conv2d(256,512,4, 2, 1),  # 25 -> 12
-            nn.BatchNorm2d(512),
+            nn.Conv2d(256,256,4, 2, 1),  # 25 -> 12
+            nn.BatchNorm2d(256),
             nn.ReLU(True),
 
-            nn.Conv2d(512,512,4, 2, 1),  # 12 -> 6
-            nn.BatchNorm2d(512),
+            nn.Conv2d(256,256,4, 2, 1),  # 12 -> 6
+            nn.BatchNorm2d(256),
             nn.ReLU(True),
 
-            nn.Conv2d(512,512,4, 2, 1),  # 6 -> 3
-            nn.BatchNorm2d(512),
+            nn.Conv2d(256,256,4, 2, 1),  # 6 -> 3
+            nn.BatchNorm2d(256),
             nn.ReLU(True),
         )
-        self.bottleneck_enc = nn.Conv2d(512, embedding_dim, kernel_size=1)
+        self.bottleneck_enc = nn.Conv2d(256, embedding_dim, kernel_size=1)
 
     
         # decoder
-        self.bottleneck_dec = nn.Conv2d(embedding_dim, 512, kernel_size=1)
+        self.bottleneck_dec = nn.Conv2d(embedding_dim, 256, kernel_size=1)
         self.decoder = nn.Sequential(
-            nn.ConvTranspose2d(512,512, 4, 2, 1),  # 3→6
-            nn.BatchNorm2d(512),
+            nn.ConvTranspose2d(256,256, 4, 2, 1),  # 3→6
+            nn.BatchNorm2d(256),
             nn.ReLU(True),
 
-            nn.ConvTranspose2d(512,512, 4, 2, 1),  # 6→12
-            nn.BatchNorm2d(512),
+            nn.ConvTranspose2d(256,256, 4, 2, 1),  # 6→12
+            nn.BatchNorm2d(256),
             nn.ReLU(True),
 
-            nn.ConvTranspose2d(512,256, 4, 2, 1),  # 12→24
+            nn.ConvTranspose2d(256,256, 4, 2, 1),  # 12→24
             nn.BatchNorm2d(256),
             nn.ReLU(True),
 
